@@ -2,6 +2,11 @@
 
 All notable changes to this handbook. Versions follow SemVer; consumers pin commit SHAs in `architecture-baseline.json`.
 
+## 1.0.1 - 2026-10-07
+
+- Declare `license: MIT` in the skill frontmatter so `gh skill publish` validates cleanly.
+- Pin the shared docs-lint workflow to a marketplace commit SHA.
+
 ## 1.0.0 - 2026-10-07
 
 First release as a standalone handbook, split from `Slight76/architecture-standards@c1bda3d` (v0.3.0). See [ADR-0001](adr/0001-adopt-operations-standards.md).

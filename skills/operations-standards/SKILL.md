@@ -1,5 +1,6 @@
 ---
 name: operations-standards
+license: MIT
 description: Slight76 team operations standards for running .NET and React apps on Fly.io with Docker, Postgres, and GitHub Actions. Use when building or changing CI/CD pipelines and GitHub Actions workflows, Dockerfiles and images, Fly.io apps (fly.toml, fly deploy, fly secrets, Fly Postgres), deployments, rollbacks and release plans, environment configuration and secrets, feature flags, logging, metrics, tracing, health checks, monitoring dashboards, alerts, SLIs/SLOs and error budgets, on-call and toil, incidents and postmortems, operational runbooks, backups, restore drills, RPO/RTO, and disaster recovery, or infrastructure (networking, DNS/TLS, IaC, capacity). Routes to the right document, lists rule IDs (CICD, OBS, SLO, PL, INF, CFG, INC, TOIL, BDR) with verification evidence, and points to the exception process.
 ---
 # Operations standards
