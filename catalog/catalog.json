@@ -1,0 +1,294 @@
+{
+  "version": "1.0.0",
+  "status": "recommended-draft",
+  "repository": "Slight76/operations-standards",
+  "rules": [
+    {
+      "id": "PL-001",
+      "domain": "platform",
+      "statement": "Application pipelines MUST independently build, test, and release immutable artifacts.",
+      "verification": "Pipeline review",
+      "adr": "ADR-0007",
+      "document": "docs/platform-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "PL-002",
+      "domain": "platform",
+      "statement": "Changes MUST run applicable unit, architecture, integration, contract, security, and critical journey checks.",
+      "verification": "CI evidence review",
+      "adr": "ADR-0007",
+      "document": "docs/platform-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "PL-003",
+      "domain": "platform",
+      "statement": "Production workloads MUST emit structured logs, useful metrics, traces, and readiness/liveness signals without exposing sensitive data.",
+      "verification": "Operational smoke tests",
+      "adr": "ADR-0007",
+      "document": "docs/platform-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "PL-004",
+      "domain": "platform",
+      "statement": "Secrets MUST be supplied through approved secret management and MUST NOT appear in source, images, or logs.",
+      "verification": "Secret scanning and deployment review",
+      "adr": "ADR-0007",
+      "document": "docs/platform-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "INF-001",
+      "domain": "infrastructure",
+      "statement": "Infrastructure MUST be version-controlled with reviewed plans and controlled production apply identities.",
+      "verification": "IaC plan and drift review",
+      "adr": "ADR-0008",
+      "document": "docs/infrastructure-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "INF-002",
+      "domain": "infrastructure",
+      "statement": "Data stores MUST use restricted network access and documented ingress/egress paths.",
+      "verification": "Network policy verification",
+      "adr": "ADR-0008",
+      "document": "docs/infrastructure-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "INF-003",
+      "domain": "infrastructure",
+      "statement": "Production topology MUST document failure domains, capacity assumptions, DNS, certificates, and recovery dependencies.",
+      "verification": "Deployment and recovery review",
+      "adr": "ADR-0008",
+      "document": "docs/infrastructure-architecture.md",
+      "status": "Proposed",
+      "applies_when": "the solution includes this domain; assess the linked architecture scope"
+    },
+    {
+      "id": "CICD-001",
+      "domain": "platform",
+      "statement": "Pipelines MUST produce immutable artifacts and retain traceable build/test evidence.",
+      "verification": "Artifact digest, source commit, lockfile, and report audit",
+      "adr": "ADR-0020",
+      "document": "docs/delivery-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application or infrastructure artifact is delivered"
+    },
+    {
+      "id": "CICD-002",
+      "domain": "platform",
+      "statement": "Privileged workflows MUST isolate untrusted code and use least-privilege short-lived access where available.",
+      "verification": "Workflow permissions and fork/PR threat review",
+      "adr": "ADR-0020",
+      "document": "docs/delivery-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application or infrastructure artifact is delivered"
+    },
+    {
+      "id": "CICD-003",
+      "domain": "platform",
+      "statement": "Release plans MUST test client/server/schema compatibility and a concrete rollback path.",
+      "verification": "Staging rollout/rollback and compatibility matrix",
+      "adr": "ADR-0020",
+      "document": "docs/delivery-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application or infrastructure artifact is delivered"
+    },
+    {
+      "id": "OBS-001",
+      "domain": "platform",
+      "statement": "Production workloads MUST expose useful correlated signals with bounded cardinality and redaction.",
+      "verification": "Trace walkthrough, cardinality review, and telemetry failure test",
+      "adr": "ADR-0021",
+      "document": "docs/observability-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application runs outside local development"
+    },
+    {
+      "id": "OBS-002",
+      "domain": "platform",
+      "statement": "Readiness and liveness MUST have distinct bounded semantics and controlled exposure.",
+      "verification": "Dependency outage and restart-loop tests",
+      "adr": "ADR-0021",
+      "document": "docs/observability-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application runs outside local development"
+    },
+    {
+      "id": "SLO-001",
+      "domain": "platform",
+      "statement": "Production services MUST define measurable user-centered objectives, owners, and actionable alerts.",
+      "verification": "Versioned SLI query, alert exercise, and runbook evidence",
+      "adr": "ADR-0021",
+      "document": "docs/observability-standard.md",
+      "status": "Proposed",
+      "applies_when": "an application runs outside local development"
+    },
+    {
+      "id": "INF-004",
+      "domain": "infrastructure",
+      "statement": "Solutions MUST document and verify traffic boundaries, DNS/TLS ownership, and trusted proxy behavior.",
+      "verification": "Network reachability and redirect/certificate tests",
+      "adr": "ADR-0022",
+      "document": "docs/infrastructure-implementation-standard.md",
+      "status": "Proposed",
+      "applies_when": "a solution provisions runtime infrastructure"
+    },
+    {
+      "id": "INF-005",
+      "domain": "infrastructure",
+      "statement": "Runtime deployments MUST define resource limits, scaling dependencies, and graceful termination.",
+      "verification": "Load/saturation and shutdown/failover tests",
+      "adr": "ADR-0022",
+      "document": "docs/infrastructure-implementation-standard.md",
+      "status": "Proposed",
+      "applies_when": "a solution provisions runtime infrastructure"
+    },
+    {
+      "id": "INF-006",
+      "domain": "infrastructure",
+      "statement": "Infrastructure state/configuration MUST be protected, reproducible, and reviewed for drift and destructive changes.",
+      "verification": "IaC plan, state-access audit, and rebuild exercise",
+      "adr": "ADR-0022",
+      "document": "docs/infrastructure-implementation-standard.md",
+      "status": "Proposed",
+      "applies_when": "a solution provisions runtime infrastructure"
+    },
+    {
+      "id": "CFG-001",
+      "domain": "configuration",
+      "statement": "Deployable artifacts MUST be environment-agnostic; all environment-specific values MUST be supplied at runtime through the environment or platform secret store.",
+      "verification": "Image inspection and fly.toml/secrets review per environment",
+      "adr": "ADR-0001",
+      "document": "docs/twelve-factor-config.md",
+      "status": "Proposed",
+      "applies_when": "an application reads any setting that differs between environments or must stay out of source control"
+    },
+    {
+      "id": "CFG-002",
+      "domain": "configuration",
+      "statement": "Required configuration MUST be validated at startup, and secrets MUST NOT appear in images, committed files, browser bundles, or logs.",
+      "verification": "Startup failure test, bundle grep, secret scan in CI",
+      "adr": "ADR-0001",
+      "document": "docs/twelve-factor-config.md",
+      "status": "Proposed",
+      "applies_when": "an application reads any setting that differs between environments or must stay out of source control"
+    },
+    {
+      "id": "CFG-003",
+      "domain": "configuration",
+      "statement": "Feature flags MUST have an owner, purpose, default, and removal condition, and MUST be read through one typed access path.",
+      "verification": "Flag inventory review and code search",
+      "adr": "ADR-0001",
+      "document": "docs/twelve-factor-config.md",
+      "status": "Proposed",
+      "applies_when": "an application reads any setting that differs between environments or must stay out of source control"
+    },
+    {
+      "id": "INC-001",
+      "domain": "incident",
+      "statement": "Production services MUST have a named primary responder, a fallback, and documented severity levels with response and communication targets.",
+      "verification": "On-call record and severity table in the service runbook",
+      "adr": "ADR-0001",
+      "document": "docs/incident-response-and-postmortems.md",
+      "status": "Proposed",
+      "applies_when": "a production service is degraded, unavailable, leaking data, or at imminent risk"
+    },
+    {
+      "id": "INC-002",
+      "domain": "incident",
+      "statement": "Incidents MUST be recorded with a timeline, actions taken, and user impact from declaration to close, and recovery MUST prefer tested rollback over live debugging.",
+      "verification": "Incident issue review and rollback exercise evidence",
+      "adr": "ADR-0001",
+      "document": "docs/incident-response-and-postmortems.md",
+      "status": "Proposed",
+      "applies_when": "a production service is degraded, unavailable, leaking data, or at imminent risk"
+    },
+    {
+      "id": "INC-003",
+      "domain": "incident",
+      "statement": "SEV1 and SEV2 incidents MUST produce a blameless postmortem within five working days with owned, tracked action items.",
+      "verification": "Postmortem document and linked issues",
+      "adr": "ADR-0001",
+      "document": "docs/incident-response-and-postmortems.md",
+      "status": "Proposed",
+      "applies_when": "a production service is degraded, unavailable, leaking data, or at imminent risk"
+    },
+    {
+      "id": "TOIL-001",
+      "domain": "reliability",
+      "statement": "Teams MUST track recurring operational toil per service and MUST automate, eliminate, or explicitly accept each recurring item with an owner and review date.",
+      "verification": "Toil list review and automation evidence",
+      "adr": "ADR-0001",
+      "document": "docs/slo-and-toil.md",
+      "status": "Proposed",
+      "applies_when": "a service runs in production and someone is expected to respond when it misbehaves"
+    },
+    {
+      "id": "BDR-001",
+      "domain": "recovery",
+      "statement": "Every stateful service MUST be assigned a criticality tier with recorded RPO and RTO targets and a backup cadence that can meet them.",
+      "verification": "Tier record in the service runbook and backup job configuration",
+      "adr": "ADR-0001",
+      "document": "docs/backup-and-disaster-recovery.md",
+      "status": "Proposed",
+      "applies_when": "a service owns state that users or the business would miss if it were lost"
+    },
+    {
+      "id": "BDR-002",
+      "domain": "recovery",
+      "statement": "Backups MUST be restored into an isolated environment on the tier's drill cadence, with measured RPO/RTO and discrepancies recorded.",
+      "verification": "Dated drill evidence in the runbook",
+      "adr": "ADR-0001",
+      "document": "docs/backup-and-disaster-recovery.md",
+      "status": "Proposed",
+      "applies_when": "a service owns state that users or the business would miss if it were lost"
+    },
+    {
+      "id": "BDR-003",
+      "domain": "recovery",
+      "statement": "Tier 1 and tier 2 data MUST have an encrypted copy outside the primary hosting platform and account, with monitored backup jobs.",
+      "verification": "Off-platform storage listing and job alert history",
+      "adr": "ADR-0001",
+      "document": "docs/backup-and-disaster-recovery.md",
+      "status": "Proposed",
+      "applies_when": "a service owns state that users or the business would miss if it were lost"
+    }
+  ],
+  "externalDecisions": {
+    "ADR-0007": {
+      "repository": "Slight76/architecture-standards",
+      "status": "Proposed",
+      "url": "https://github.com/Slight76/architecture-standards/blob/main/adr/0007-platform.md"
+    },
+    "ADR-0008": {
+      "repository": "Slight76/architecture-standards",
+      "status": "Proposed",
+      "url": "https://github.com/Slight76/architecture-standards/blob/main/adr/0008-infrastructure.md"
+    },
+    "ADR-0020": {
+      "repository": "Slight76/architecture-standards",
+      "status": "Proposed",
+      "url": "https://github.com/Slight76/architecture-standards/blob/main/adr/0020-implementation-decisions.md"
+    },
+    "ADR-0021": {
+      "repository": "Slight76/architecture-standards",
+      "status": "Proposed",
+      "url": "https://github.com/Slight76/architecture-standards/blob/main/adr/0021-implementation-decisions.md"
+    },
+    "ADR-0022": {
+      "repository": "Slight76/architecture-standards",
+      "status": "Proposed",
+      "url": "https://github.com/Slight76/architecture-standards/blob/main/adr/0022-implementation-decisions.md"
+    }
+  }
+}

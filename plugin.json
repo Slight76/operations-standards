@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "operations-standards",
+  "version": "1.0.0",
+  "description": "Team operations standards for developers and AI agents: delivery pipelines, observability, SLOs and toil, incident response, configuration and secrets, platform and infrastructure (Fly.io, Docker, Postgres, GitHub Actions), backup and disaster recovery.",
+  "author": { "name": "Slight76", "url": "https://github.com/Slight76" },
+  "homepage": "https://github.com/Slight76/operations-standards",
+  "repository": "https://github.com/Slight76/operations-standards",
+  "license": "MIT",
+  "keywords": ["standards", "agent-skills", "operations"]
+}
