@@ -11,7 +11,6 @@ Baseline: 1.0.0. Applies when: an application runs outside local development
 
 Decision: [ADR-0021](https://github.com/Slight76/architecture-standards/blob/main/adr/0021-implementation-decisions.md). Rules become binding when this baseline is adopted; examples explain the policy and do not establish business requirements.
 
-
 ## Signal ownership
 
 Use OpenTelemetry-compatible instrumentation for traces/metrics and structured logs with trace correlation. The solution selects exporters and a backend; do not hardwire one vendor into domain code. Record service name, environment, version, and instance identity. Trust trace headers only as correlation data, never as caller identity.
@@ -41,7 +40,6 @@ Example format, without invented production targets: `successful eligible stock 
 Trigger one synthetic failure and follow its trace across API and database/worker. Confirm the on-call alert routes correctly and links a runbook. Stop a dependency and observe readiness/liveness behavior. Simulate telemetry exporter loss: buffering is bounded and the app does not block indefinitely. Test redaction with synthetic secret-like inputs and sampling behavior under load.
 
 Source: [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/). Health and SLO acceptance policy is defined here.
-
 
 ## Rules and required evidence
 

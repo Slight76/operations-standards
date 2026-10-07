@@ -11,7 +11,6 @@ Baseline: 1.0.0. Applies when: an application or infrastructure artifact is deli
 
 Decision: [ADR-0020](https://github.com/Slight76/architecture-standards/blob/main/adr/0020-implementation-decisions.md). Rules become binding when this baseline is adopted; examples explain the policy and do not establish business requirements.
 
-
 ## Repository and artifact lifecycle
 
 Frontend, backend, and worker repositories own independent pipelines. Default to short-lived branches and reviewed pull requests into main. Releases use immutable artifact identifiers and semantic application versions; do not require a long-lived release branch unless multiple maintained lines need it. Pin the standards baseline separately from package versions.
@@ -48,7 +47,6 @@ Production rollout policy is owned by the solution and platform. This document d
 Dependency install fails without network; artifact provenance mismatches commit; migration succeeds but API rollout fails; new frontend hits an old API; client caches old HTML; signing/deployment credentials expire. Each needs a documented response. Never retag a different image under an immutable release identifier.
 
 Source: [GitHub secure use](https://docs.github.com/en/actions/reference/security/secure-use). Pipeline matrix and release behavior are team policy.
-
 
 ## Rules and required evidence
 

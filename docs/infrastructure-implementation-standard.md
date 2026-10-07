@@ -11,7 +11,6 @@ Baseline: 1.0.0. Applies when: a solution provisions runtime infrastructure
 
 Decision: [ADR-0022](https://github.com/Slight76/architecture-standards/blob/main/adr/0022-implementation-decisions.md). Rules become binding when this baseline is adopted; examples explain the policy and do not establish business requirements.
 
-
 ## Platform selection
 
 Default to the simplest managed/container/VM platform that satisfies workload, network, recovery, and operating-skill requirements. Kubernetes is conditional, not an team prerequisite. A local lab may use VMs while a production solution uses managed services; document both without pretending their failure guarantees are identical.
@@ -47,7 +46,6 @@ Promote versioned modules with migration notes. Avoid hand-edited production set
 ## Verification
 
 From an untrusted path, confirm direct datastore access fails. Verify allowed application traffic, certificate renewal monitoring, proxy redirect correctness, resource-limit behavior, graceful draining, and zone/host loss for the chosen reliability tier. Record architecture differences between local, test, and production environments.
-
 
 ## Rules and required evidence
 
